@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11.0.10_9-jdk-openj9-0.24.0-focal
+FROM adoptopenjdk:11-jre-openj9-focal
 
 RUN apt-get update \
   && apt-get upgrade -y \
@@ -48,10 +48,11 @@ RUN curl -fsSL https://github.com/krallin/tini/releases/download/${TINI_VERSION}
 
 # jenkins version being bundled in this docker image
 ARG JENKINS_VERSION
-ENV JENKINS_VERSION ${JENKINS_VERSION:-2.235.4}
+ENV JENKINS_VERSION ${JENKINS_VERSION:-2.277.1}
 
 # jenkins.war checksum, download will be validated using it
-ARG JENKINS_SHA=e5688a8f07cc3d79ba3afa3cab367d083dd90daab77cebd461ba8e83a1e3c177
+# ARG JENKINS_SHA=e5688a8f07cc3d79ba3afa3cab367d083dd90daab77cebd461ba8e83a1e3c177
+ARG JENKINS_SHA=399741DB1152EE7BBE8DC08E0972EFA0B128A1B55A0F8B10C087FEFEEC66D151
 
 # Can be used to customize where jenkins.war get downloaded from
 ARG JENKINS_URL=https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/${JENKINS_VERSION}/jenkins-war-${JENKINS_VERSION}.war
