@@ -26,6 +26,7 @@ pipeline {
                     script {
                         docker.withRegistry('https://registry.hub.docker.com', '323e0e0d-ab6e-4a64-ac62-c10634c48c47') {
                             app.push("${REVNUMBER}")
+                            app.push("lts")
                             app.push("latest")
                         }
                     }
