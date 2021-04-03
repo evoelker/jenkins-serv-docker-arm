@@ -2,7 +2,7 @@ FROM adoptopenjdk:11-jre-openj9-focal
 
 RUN apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y --no-install-recommends git curl gnupg fontconfig unzip nano \
+  && apt-get install -y --no-install-recommends git curl gnupg fontconfig unzip nano openssh-client \
   && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y git-lfs && git lfs install \
   && rm -rf /var/lib/apt/lists/*
 
