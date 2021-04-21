@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11-jre-openj9-focal
+FROM arm64v8/adoptopenjdk:11-jre-openj9-focal
 
 RUN apt-get update \
   && apt-get upgrade -y \
