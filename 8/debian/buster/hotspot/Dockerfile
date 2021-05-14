@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8:jdk8u282-b08-debian
+FROM adoptopenjdk/openjdk8:jdk8u292-b10-debian
 
 # Install latest git lfs on Debian per https://github.com/git-lfs/git-lfs/wiki/Installation#debian-and-ubuntu
 # Avoid JENKINS-59569 - git LFS 2.7.1 fails clone with reference repository
@@ -70,7 +70,7 @@ RUN curl -fsSL ${PLUGIN_CLI_URL} -o /usr/lib/jenkins-plugin-manager.jar
 # for main web interface:
 EXPOSE ${http_port}
 
-# will be used by attached slave agents:
+# will be used by attached agents:
 EXPOSE ${agent_port}
 
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log

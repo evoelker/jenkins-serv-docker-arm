@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:jdk-11.0.10_9-debianslim-slim
+FROM adoptopenjdk/openjdk11:jdk-11.0.11_9-debianslim-slim
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y git git-lfs curl gpg unzip libfreetype6 libfontconfig1 && git lfs install && rm -rf /var/lib/apt/lists/*
 
@@ -68,7 +68,7 @@ RUN curl -fsSL ${PLUGIN_CLI_URL} -o /usr/lib/jenkins-plugin-manager.jar
 # for main web interface:
 EXPOSE ${http_port}
 
-# will be used by attached slave agents:
+# will be used by attached agents:
 EXPOSE ${agent_port}
 
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
